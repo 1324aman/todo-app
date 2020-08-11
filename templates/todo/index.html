@@ -1,0 +1,20 @@
+{% extends 'todo/base.html' %}
+
+
+{% block content %}
+<div class="container bg-secondary text-center px-5 py-3 ">
+	<h2>YOUR TASKLIST</h2>
+<a class='btn-success text-decoration-none px-1 py-1' href="{% url 'todo:create' %}">Add New Task</a>
+{% for task in tasklist %}
+<div class="container mx-4 my-3 px-3 py-3 pr-5" style="background: #a7a8a8">
+
+<h5 style="display: inline" class="">{{ task.title }}</h5>
+<a href="{% url 'todo:delete' task.id %}" class="float-right text-danger "><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+
+<a href="{% url 'todo:update' task.id %}" class="float-right mr-3" ><i class="fa fa-edit fa-lg"></i></a>
+
+</div>
+<div></div>
+{% endfor %}
+</div>
+{% endblock %}

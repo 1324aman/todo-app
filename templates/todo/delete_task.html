@@ -1,0 +1,13 @@
+{% extends 'todo/base.html' %}
+
+
+{% block content %}
+<div class=" container bg-secondary px-5 py-5">
+
+<form method="post">
+	{% csrf_token %}
+    <h5>Have you completed  "{{ task.title }}"?</h5>
+    <input class="btn-danger" type="submit" value="Delete">
+</form>	
+</div>
+{% endblock %}
